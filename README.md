@@ -1,5 +1,5 @@
 # Titans_pytorch
-We do implementation of the titans which proposed from Google Research.      
+We do implement of the titans which proposed from Google Research.      
 Our implementation can be something wrong, so if you have or find the issue, feel free to report issues to our repo.
 
 # Reference 
