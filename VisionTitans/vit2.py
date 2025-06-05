@@ -48,8 +48,14 @@ class ResidualNorm(nn.Module):
         self.norm = nn.LayerNorm(dim)
         self.fn = fn
 
-    def forward(self, x):
-        return x + self.fn(self.norm(x))
+    def forward(self, x, *args, **kwargs):
+        """Apply function with residual connection.
+
+        Extra positional and keyword arguments are forwarded to ``self.fn`` so
+        that wrapped functions can accept additional inputs (e.g. memory
+        tensors).
+        """
+        return x + self.fn(self.norm(x), *args, **kwargs)
 
 # --- Transformer Encoder ---
 class MultiScaleEncoder(nn.Module):
